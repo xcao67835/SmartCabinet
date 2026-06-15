@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.db
+*.pt
+JSON_results_folder/
+images_esp_upload/
+images_user_upload/
+test_images/
