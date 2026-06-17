@@ -173,7 +173,7 @@ def process_img(img_name:str, folder_path=None):
     if image is None:
         raise FileNotFoundError(info["img_path"])
     
-    print(f"開始辨識{info["img_name"]}")
+    print(f"開始辨識{info['img_name']}")
 
     YOLO_find_crops(info)
 
