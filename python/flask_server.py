@@ -23,7 +23,7 @@ def update_esp_status(ip=None):
 
     if response is None:
         esp_status = None
-        print(f"時間{datetime.now().strftime("%H:%M:%S")}, ESP連線狀態: 離線", end = ",  ")
+        print(f"時間{datetime.now().strftime('%H:%M:%S')}, ESP連線狀態: 離線", end = ",  ")
         return
 
     esp_status = response.json()
