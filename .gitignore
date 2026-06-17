@@ -1,8 +1,9 @@
-__pycache__/
 *.pyc
 *.db
 *.pt
-JSON_results_folder/
-images_esp_upload/
-images_user_upload/
-test_images/
+python/__pycache__/
+python/JSON_results_folder/
+python/images_esp_upload/
+python/images_user_upload/
+python/test_images/
+esp32-cam/硬體驅動程式/
