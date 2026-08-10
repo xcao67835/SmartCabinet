@@ -16,6 +16,7 @@ os.chdir(BASEPATH)
 db.create_table()
 
 #勿隨意改
+#CLIP標籤
 LABELS = [
     "hand",
     "electronic device",
@@ -31,7 +32,22 @@ LABELS = [
     "wearable item",
     "random object"
 ]
-
+#中文對照表
+LABEL_ZH = {
+    "hand": "手",
+    "electronic device": "電子設備",
+    "stationery item": "文具",
+    "book or document": "書籍／文件",
+    "storage box": "收納盒",
+    "cup or bowl or plate": "杯／碗／盤",
+    "food or drink": "食物／飲料",
+    "anime figure": "動漫公仔",
+    "plush toy": "絨毛玩偶",
+    "money": "金錢",
+    "cable or charger": "線材／充電器",
+    "wearable item": "穿戴用品",
+    "random object": "其他物品"
+}
 
 #==define==
 #輸入圖片 理論上是點陣圖都能用 但我沒試過 最好是用.jpg
@@ -157,6 +173,14 @@ def save_as_json(info:dict, folder:str="JSON_results_folder"):
             indent=4
         )
 
+#翻譯-將CLIP_describe中LEBELS比對到LABEL_ZH
+def CLIP_describe_translate(info:dict):
+    check_crops(info)
+
+    for crop_info in info["crops"]:
+        english = crop_info["CLIP_describe"]
+        crop_info["CLIP_describe_zh"] = LABEL_ZH[english]
+
 #組合
 def process_img(img_name:str, folder_path=None):
     info = {}
@@ -173,6 +197,7 @@ def process_img(img_name:str, folder_path=None):
 
     if info["crops"]:
         CLIP_describe_and_embedding(info, image)
+        CLIP_describe_translate(info)
         BLIP_describe(info, image)
         print("完成")
     else:

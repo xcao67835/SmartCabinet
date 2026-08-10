@@ -25,6 +25,7 @@ def create_table():
     y2 INTEGER,
 
     clip_describe TEXT,
+    clip_describe_zh TEXT,
     blip_describe TEXT,
 
     embedding TEXT
@@ -95,8 +96,8 @@ def save_to_db(data:dict):
     for crop in data["crops"]:
         cursor.execute("""
         INSERT INTO items
-        (img_name, img_path, YOLO_confidence, x1, y1, x2, y2, clip_describe, blip_describe, embedding)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        (img_name, img_path, YOLO_confidence, x1, y1, x2, y2, clip_describe, clip_describe_zh, blip_describe, embedding)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """, (
 
         data["img_name"],
@@ -107,6 +108,7 @@ def save_to_db(data:dict):
         crop["crop_position"]["x2"],
         crop["crop_position"]["y2"],
         crop["CLIP_describe"],
+        crop["CLIP_describe_zh"],
         crop["BLIP_describe"],
         json.dumps(crop["CLIP_embedding"])
 
