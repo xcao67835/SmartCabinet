@@ -1,6 +1,7 @@
 *.pyc
 *.db
 *.pt
+python/.vscode/
 python/__pycache__/
 python/JSON_results_folder/
 python/images_esp_upload/

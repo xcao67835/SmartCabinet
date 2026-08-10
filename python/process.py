@@ -1,10 +1,4 @@
-# 先設定:
-# 終端機輸入 py -m pip install ultralytics transformers pillow torch opencv-python flask
-# 按 Ctrl + Shift + P  
-# 輸入 Python: Select Interpreter 然後找能用的python版本
-# 在vscode看.db:裝"SQLite Viewer"外掛/插件
-
-# 沒事別import 因preset那邊要跑很久
+# 沒事別import 因preset那邊要跑很久 第一次跑的話會跑更久 因為要下載yolo的模型 
 
 #==Import==
 #別人的庫
